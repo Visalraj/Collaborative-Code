@@ -10,11 +10,8 @@ export default function CodeEditor({ slug }: { slug: string }) {
     const roomId = slug;
 
     const socketRef = useRef<Socket | null>(null);
-    const editorRef =
-        useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
-    const changeDisposableRef = useRef<monaco.IDisposable | null>(
-        null,
-    );
+    const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
+    const changeDisposableRef = useRef<monaco.IDisposable | null>( null,);
 
     const applyingRemoteRef = useRef(false);
     const versionRef = useRef(0);
