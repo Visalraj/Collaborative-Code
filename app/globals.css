@@ -1,2 +1,4 @@
 @import "tailwindcss";
-
+.hero-banner{
+    background: rgb(223, 57, 57);
+}
