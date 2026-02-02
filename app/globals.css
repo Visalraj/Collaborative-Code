@@ -1,7 +1,20 @@
+@import "flowbite/src/themes/default";
 @import "tailwindcss";
 .hero-banner{
     background: rgb(223, 57, 57);
 }
-.dark-theme {
-  background-color: #0B0F14;
+html, body {
+  height: 100%;
+}
+
+body.dark-theme {
+  background: #121212;
+}
+.dark-theme .wrapcodeeditor{
+  background: #121212;
+}
+
+.dark-theme .wrap-buttons button {
+  border-color: #fff;
+  color: #ffffff;
 }
