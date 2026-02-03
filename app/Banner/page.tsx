@@ -1,5 +1,4 @@
-import Link from "next/link";
-import Icon from "../components/icons";
+import Button from "../components/button";
 import randomUuidGenerator from "../components/common";
 export default function Banner() {
     const randomUuid = randomUuidGenerator();
@@ -15,10 +14,7 @@ export default function Banner() {
                     and from anywhere.
                 </p>
                 <div className="wrap-btns p-7">
-                    <Link href={`/room/${randomUuid}`}>
-                        <button className="group border rounded-2xl px-6 py-4 w-fit inline-flex items-center gap-2 cursor-pointer
-                   transition-all duration-300 ease-out hover:scale-[1.04]">Create Room <Icon name="arrowright"/></button>
-                   </Link>
+                    <Button/>
                 </div>
             </div>
         </>

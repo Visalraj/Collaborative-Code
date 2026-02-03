@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { io, Socket } from "socket.io-client";
 import type * as monaco from "monaco-editor";
 import Icon from "../components/icons";
-import CopyModal from "../components/modal";
+import Modal from "../components/modal";
 
 const SOCKET_URL = process.env.NEXT_PUBLIC_SOCKET_URL || "http://localhost:4000";
 
@@ -145,7 +145,7 @@ export default function CodeEditor({ slug }: { slug: string }) {
                     options={{ minimap: { enabled: false } }}
                 />
             </div>
-            {modalOpen && ( <CopyModal id={roomId} onClose={() => setModalOpen(prev => !prev)}/>)}
+            {modalOpen && ( <Modal id={roomId} onClose={() => setModalOpen(prev => !prev)} type={'share'}/>)}
         </>
     );
 }
