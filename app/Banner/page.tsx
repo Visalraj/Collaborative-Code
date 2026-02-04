@@ -1,7 +1,5 @@
 import Button from "../components/button";
-import randomUuidGenerator from "../components/common";
 export default function Banner() {
-    const randomUuid = randomUuidGenerator();
     return (
         <>
             
