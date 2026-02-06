@@ -1,9 +1,8 @@
 "use client"
 import { useState } from "react";
 import Icon from "./icons"
-import { handleSignIn, handleSignOut } from "../lib/auth";
 import { useSession } from "next-auth/react";
-import { signIn } from "next-auth/react";
+import { signIn, signOut } from "next-auth/react";
 
 
 export default function Modal({id, onClose,type }: { id:string, onClose: () => void,type: 'share' | 'signin' }) {
@@ -18,7 +17,6 @@ export default function Modal({id, onClose,type }: { id:string, onClose: () => v
     };
     
     const { data: session } = useSession();
-
     return type === "share" ? (
         <>
             {/* Background overlay (modal backdrop)*/}
@@ -79,14 +77,14 @@ export default function Modal({id, onClose,type }: { id:string, onClose: () => v
                                     <h2 className="text-lg font-medium text-gray-700">
                                         Welcome, {session.user.name}!
                                     </h2>
-                                    <button onClick={handleSignOut} className="px-4 py-2 mt-4 text-white bg-red-500 rounded-lg hover:bg-red-600" >
+                                    <button onClick={() => signOut({ callbackUrl: '/' })} className="px-4 py-2 mt-4 text-white bg-red-500 rounded-lg hover:bg-red-600" >
                                         Sign Out
                                     </button>
                                 </div>
                             ) : (
                                 <ul className="my-6">
                                     <li className="flex flex-col items-center gap-5">
-                                        <button onClick={handleSignIn}  className="flex w-60 items-center justify-center gap-3 rounded-2xl border border-gray-200 bg-white px-6 py-4 text-sm font-medium text-gray-800 shadow-sm transition-all hover:shadow-md hover:bg-gray-50 active:scale-[0.98]"  >
+                                        <button onClick={() => signIn("google")}  className="flex w-60 items-center justify-center gap-3 rounded-2xl border border-gray-200 bg-white px-6 py-4 text-sm font-medium text-gray-800 shadow-sm transition-all hover:shadow-md hover:bg-gray-50 active:scale-[0.98]"  >
                                             <Icon name="google" />
                                             <span>
                                                 Sign in with Google

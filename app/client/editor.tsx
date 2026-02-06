@@ -113,37 +113,22 @@ export default function CodeEditor({ slug }: { slug: string }) {
                 {/*<span className="opacity-70 text-sm">
                     Socket: {status}
                 </span> */}
-                <button
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 w-36 rounded-full border border-black/20 text-black font-medium hover:bg-black/5 transition-all duration-200 cursor-pointer"
-                    onClick={() => toogleShareModal()}
-                >
+                <button  className="inline-flex items-center justify-center gap-2 px-6 py-3 w-36 rounded-full border border-black/20 text-black font-medium hover:bg-black/5 transition-all duration-200 cursor-pointer"  onClick={() => toogleShareModal()} >
                     <Icon name="share" />
                     <span>Share</span>
                 </button>
 
-                <button
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 w-36 rounded-full border border-black/20 text-black font-medium hover:bg-black/5 transition-all duration-200 cursor-pointer"
-                    onClick={() => changeTheme()}
-                >
-                    {theme == "light" ? (
-                        <Icon name="sun" />
-                    ) : (
-                        <Icon name="moon" />
-                    )}
+                <button className="inline-flex items-center justify-center gap-2 px-6 py-3 w-36 rounded-full border border-black/20 text-black font-medium hover:bg-black/5 transition-all duration-200 cursor-pointer" onClick={() => changeTheme()} >
+                    {theme == "light" ? ( <Icon name="sun" /> ) : ( <Icon name="moon" /> )}
                     <span>Theme</span>
                 </button>
             </div>
 
             <div className="wrapcodeeditor w-full">
-                <Editor
-                    height="90vh"
-                    defaultLanguage="javascript"
-                    defaultValue=""
-                    theme={theme === "light" ? "vs-dark" : "vs-light"}
+                <Editor height="90vh"  defaultLanguage="javascript"  defaultValue=""  theme={theme === "light" ? "vs-dark" : "vs-light"}
                     onMount={onMount}
                     onChange={onChange}
-                    options={{ minimap: { enabled: false } }}
-                />
+                    options={{ minimap: { enabled: false } }} />
             </div>
             {modalOpen && ( <Modal id={roomId} onClose={() => setModalOpen(prev => !prev)} type={'share'}/>)}
         </>
